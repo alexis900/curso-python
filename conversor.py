@@ -1,30 +1,34 @@
+from xmlrpc.client import boolean
+
+
 val_dolar = 137.21
-val_yen = 0.00731
+tipo_moneda = "Yen"
+def conversor(tipo_moneda, valor_dolar, to_moneda=False):
+    if (to_moneda == True):
+        moneda = float(input("¿Cuántos dólares tienes? "))
+        dolares = str(round(moneda * valor_dolar))
+        print("Tienes " + dolares + " " + tipo_moneda)
+    else:
+        moneda = float(input("¿Cuántos " + tipo_moneda + " tienes? "))
+        dolares = str(round(moneda / valor_dolar))
+        print("Tienes $ " + dolares + " dólares")
+    
 
-
-def Menu():
-    print("""
-    1. Dolar a yen
-    2. Yen a dolar
-    3. Salir
-    """)
+def Menu(tipo_moneda):
+    print("1. Dolar a " + tipo_moneda + "\n2. " + tipo_moneda + " a dolar\n3. Salir")
 
     opcion = int(input("Introduce una opcion: "))
     if opcion == 1:
-        dolar = float(input("Introduce los dolares que tienes: "))
-        yen = str(round(dolar * val_dolar, 2))
-        print("Tienes " + yen + " yens")
-        Menu()
+        conversor(tipo_moneda, val_dolar, True)
+        Menu(tipo_moneda)
     elif opcion == 2:
-        yen = float(input("Introduce los yens que tienes: "))
-        dolar = str(round(yen / val_dolar, 2))
-        print("Tienes " + dolar + " dolares")
-        Menu()
+        conversor(tipo_moneda, val_dolar)
+        Menu(tipo_moneda)
     elif opcion == 3:
         print("Hasta luego")
     else:
         print("Opcion no valida")
-        Menu()
+        Menu(tipo_moneda)
 
 
-Menu()
+Menu(tipo_moneda)
