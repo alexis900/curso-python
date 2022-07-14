@@ -1,6 +1,3 @@
-from xmlrpc.client import boolean
-
-
 val_dolar = 137.21
 tipo_moneda = "Yen"
 def conversor(tipo_moneda, valor_dolar, to_moneda=False):
