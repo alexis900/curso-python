@@ -1,0 +1,8 @@
+Package           Version
+----------------- -------
+mypy              0.971
+mypy-extensions   0.4.3
+pip               22.0.4
+setuptools        58.1.0
+tomli             2.0.1
+typing_extensions 4.3.0
